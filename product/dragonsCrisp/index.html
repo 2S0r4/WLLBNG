@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WLLBNG CREATIVE.</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script defer>
+      document.addEventListener("DOMContentLoaded", () => {
+        const quoteElement = document.getElementById("quote");
+        const quotes = [
+          "TODAYS",
+          "TOMORROWS",
+          "YESTERDAYS",
+          "FOREVER",
+          "ALWAYS",
+          "SOMETIMES",
+        ];
+        let index = 0;
+
+        function changeQuote() {
+          quoteElement.style.opacity = 0;
+          setTimeout(() => {
+            index = (index + 1) % quotes.length;
+            quoteElement.textContent = quotes[index];
+          }, 500); // Wait for fade out before changing text
+
+          setTimeout(() => {
+            quoteElement.style.opacity = 1;
+          }, 1000);
+        }
+
+        document.body.addEventListener("click", changeQuote);
+
+        setInterval(changeQuote, 3000);
+
+        document.querySelector(".display").addEventListener("click", () => {
+          document.getElementById("checkout").style.display = "flex";
+          setTimeout(() => {
+            document.getElementById("checkout").style.opacity = "1";
+          }, 100);
+        });
+      });
+    </script>
+    <script src="checkout.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <h1>
+        WLLBNG CREATIVE.
+        <p style="cursor: pointer" id="quote">TODAYS</p>
+      </h1>
+      <div class="display">
+        <div class="product-info">
+          <h2>WLLBNG</h2>
+          <p>DRAGON'S CRISP</p>
+        </div>
+        <img class="product" src="/assets/DragonsCrisp.png" alt="" />
+        <div class="product-info">
+          <h2>SHIRT</h2>
+          <div class="price-info">
+            <p>82,73R$</p>
+            <p class="discount">FREE</p>
+          </div>
+        </div>
+      </div>
+      <div class="announcement">
+        <h1>*Note</h1>
+        <p class="description">
+          Maintain a tension index between 65–85% to fuel media cycles, weapon
+          sales, and emergency budget extensions. Bonus: economic anxiety keeps
+          labor obedient.
+        </p>
+      </div>
+      <section id="checkout">
+        <div class="checkout-content">
+          <div
+            onclick="document.getElementById('checkout').style.display='none';"
+            class="x"
+          >
+            X
+          </div>
+          <h1>CHECKOUT</h1>
+          <div class="address">
+            <div class="row">
+              <input
+                id="firstname"
+                class="question"
+                type="text"
+                placeholder="first name"
+              />
+              <input
+                id="lastname"
+                class="question"
+                type="text"
+                placeholder="Last Name"
+              />
+            </div>
+            <div class="row">
+              <textarea
+                rows="5"
+                class="question"
+                placeholder="Address"
+                id="address"
+              ></textarea>
+            </div>
+            <div class="row">
+              <input
+                id="email"
+                class="question"
+                type="text"
+                placeholder="Email"
+              />
+              <input
+                class="question"
+                type="number"
+                placeholder="Phone Number"
+                id="phone"
+              />
+            </div>
+
+            <div class="term">
+              <input type="checkbox" name="" id="term" />
+              <label for="">I agree to fully support WLLBNG (Optional)</label>
+            </div>
+            <div class="term">
+              <input type="checkbox" name="" id="termservice" />
+              <label for=""
+                >I agree to the terms and conditions <span>*</span></label
+              >
+            </div>
+          </div>
+          <button id="submit">SUBMIT</button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
